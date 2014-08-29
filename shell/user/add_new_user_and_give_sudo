@@ -1,0 +1,2 @@
+add user cyberbrain # add new user
+adduser cyberbrain sudo # add existing user to sudo group

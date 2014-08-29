@@ -1,0 +1,77 @@
+[global_config]
+  enabled_plugins = InactivityWatch, CustomCommandsMenu, TestPlugin, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, MavenPluginURLHandler, LaunchpadBugURLHandler
+  handle_size = 0
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    cursor_shape = underline
+    background_image = None
+    background_type = image
+    cursor_color = "#fff600"
+    foreground_color = "#00ff00"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+  [[django - tetrabyte]]
+    [[[child0]]]
+      position = 0:25
+      type = Window
+      order = 0
+      parent = ""
+      size = 1280, 976
+    [[[child1]]]
+      position = 752
+      type = VPaned
+      order = 0
+      parent = child0
+    [[[child3]]]
+      position = 543
+      type = HPaned
+      order = 1
+      parent = child1
+    [[[child5]]]
+      position = 481
+      type = HPaned
+      order = 1
+      parent = child3
+    [[[terminal2]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child1
+      title = VIM
+      command = 'ssh cc -t "cd ~/workspace/python-django/tetrabyte && source bin/activate && vim -S tetrabyte.vim ; bash --login"'
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child3
+      title = Server_RUN
+      command = 'ssh cc -t "cd ~/workspace/python-django/tetrabyte/ && source bin/activate  && python presentation/manage.py runserver 10.0.0.1:8000 ; bash --login"'
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child5
+      title = HELP
+      command = 'ssh cc -t "cd ~/workspace/python-django/tetrabyte && PS1="tetrabyte"; bash --login"'
+    [[[terminal6]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child5
+      title = Remote_FS
+      command = 'ssh cc -t "cd ~/workspace/python-django/tetrabyte ; bash --login"'
+[plugins]
+  [[CustomCommandsMenu]]
+    [[[vim]]]
+      command = "vim "
+      enabled = True
+      name = vim

@@ -1,0 +1,20 @@
+time=1
+while getopts "h?t:" opt; 
+    do
+        case "$opt" in
+        h|\?)
+            echo "get_gpu_temp [-t]"
+            echo "-t    refrash time (default 1s)"
+            exit 0
+            ;;
+
+        t) time=$OPTARG
+            ;;
+        esac
+    done
+
+while [ true ];
+do
+    nvidia-smi | grep -e "N/A" |grep "C"|awk '{print $3} ';
+    sleep $time;
+done;

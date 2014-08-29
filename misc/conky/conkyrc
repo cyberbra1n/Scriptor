@@ -1,0 +1,146 @@
+#this is the config :/ just make sure u dont edit it without knowing wut u doing ;]
+# Use Xft?
+use_xft yes
+xftfont DejaVu Sans:size=8
+xftalpha 0.8
+text_buffer_size 2048
+
+# Update interval in seconds
+update_interval 1
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_transparent yes
+own_window_type override
+
+#KDE Below
+#own_window_type normal
+#own_window_class Conky
+#own_window_argb_visual yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 180 0
+#maximum_width 200
+
+# Draw shades?
+draw_shades yes
+
+# Draw outlines?
+draw_outline yes
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+stippled_borders 0
+
+# border margins
+#border_margin 5
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+#default_color B7EA81
+#default_shade_color black
+#default_outline_color white
+own_window_colour transparent
+#this is your color pallete
+color0	ffffff	#white
+color1	00ff00	#green
+color2	0000ff	#blue
+color3	ff0000	#red
+color4	7da8f8	#wierd blue
+color5	496291	#azul mas oscuro
+color6  B7EA81  #great green
+
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 10
+gap_y 30
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer none
+draw_graph_borders yes
+TEXT
+${offset 55}${color1}${font INFECTED:size=20}hardcore
+${offset 55}${color6}${font Defused::bold:size=8}${kernel}
+${voffset 5}${color2}${font Defused:size=8}Uptime: ${alignr}${color3}${uptime}
+
+${color5}CPU-0: ${offset 6}${color0}${cpu cpu0}% ${offset -6}${alignr}${color5}CPU-1: ${offset 6}${color0}${cpu cpu0}% ${offset -6}${alignr}
+${color6}${cpugraph cpu0 15,100 00FF00 FF0000}${color6}${cpugraph cpu1 15,100 00FF00 FF0000}${alignr}
+
+${color5}RAM: ${offset 12}${color0}$memperc% ${offset -12}${alignr}
+${color6}${memgraph 15,200 00FF00 FF0000}
+
+${color2}${font Defused:size=10}Home:
+${color1}${font Defused:size=10}${fs_free /home}/${fs_size /home} 
+
+${color6}${fs_bar 10,210 /home}
+${offset 0}${color1}${font INFECTED:size=17}TOP CPU${font}
+${color6}${voffset 10}${font JUICE Bold:size=8}${top name 1}${alignr}${top cpu 1}
+${top name 2}${alignr}${top cpu 2}
+${top name 3}${alignr}${top cpu 3}
+${top name 4}${alignr}${top cpu 4}
+${top name 5}${alignr}${top cpu 5}
+${offset 0}${color1}${font INFECTED:size=17}TOP MEM${font}
+${color6}${voffset 10}${font JUICE Bold:size=8}${top_mem name 1}${alignr}${top_mem mem 1}
+${top_mem name 2}${alignr}${top_mem mem 2}
+${top_mem name 3}${alignr}${top_mem mem 3}
+${top_mem name 4}${alignr}${top_mem mem 4}
+${top_mem name 5}${alignr}${top_mem mem 5}
+
+${color1}${offset 55}${font INFECTED:size=17}NETWORK
+${color2}${color1}${font Defused:size=7}Down: 
+${color6}${downspeedgraph wlan0 20,130 0000FF 00FF00}${voffset -15}${alignr}${color0}${downspeed wlan0} 
+
+
+${color3}${font Defused:size=7}Up:  
+${color6}${upspeedgraph wlan0 20,130 FF0000 008000}${voffset -15}${alignr}${color0}${upspeed wlan0}
+
+#${color6}${voffset 10}${font Defused:size=10}${wireless_essid wlan0}
+
+${color6}${font Defused:size=10}Local Ip: ${alignr}${color1}${addr wlan0}
+
+${color6}Potencia:${alignr}${color2}${wireless_link_qual_perc wlan0}
+
+${color6}Velocidad: ${color0}${wireless_bitrate wlan0} ${alignr}${voffset -10}
+
+${offset 55}${color1}${font INFECTED:size=20}sYsteM
+
+#${color6}${voffset 10}${font Defused:size=10}Exter. Ip: ${alignr}${color3}${execi 3600 wget -O - http://whatismyip.org/ | tail}
+
+
+
