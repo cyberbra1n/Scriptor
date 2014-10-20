@@ -1,8 +1,0 @@
-Kali linux step by step
-....smthing basic....don't know what
-
-1. Add new user(other then root) and add to sudo group:
-add user cyberbrain
-adduser cyberbrain sudo 
-
-2. install python-launchpadlib (required for ArduinoPy)
